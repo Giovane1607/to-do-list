@@ -3,7 +3,7 @@ from random import randint
 import back
 
 
-sg.theme('LightBrown')
+sg.theme('Black')
 
 
 def front():
@@ -22,16 +22,15 @@ def front():
         exit()
 
 ID = ''
-NAME = back.read_task() 
+NAME = back.read_task()
 
 layout = [
-    [sg.Text('Coloque os seus afazeres'), sg.InputText('', key='-NAME-')],
-    [sg.Button('Adicionar')],
+    [sg.Text('Nome', font=('Helvetica 14')), sg.InputText('', key='-NAME-', size=(20, 1)),
+     sg.Button('Adicionar', button_color=('white', 'green'))],
     [sg.Text('')],
-    [sg.Text('Lista')],
-    [sg.Listbox(NAME, size=(50,10), key='-BOX-')],
-    [sg.Button('Deletar'), sg.Button('Sair')]
-    
+    [sg.Text('Lista', font=('Arial 14'))],
+    [sg.Listbox(values=[], size=(40, 6), key='-BOX-', select_mode=sg.LISTBOX_SELECT_MODE_EXTENDED)],
+    [sg.Button('Deletar', button_color=('white', 'red')), sg.Button('Sair', button_color=('white', 'blue'))]
 ]
 
 
@@ -67,6 +66,9 @@ while True:
     if button == sg.WIN_CLOSED:
         window.close()
         break
+    
+
+    
 
 
 

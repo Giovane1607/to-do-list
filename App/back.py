@@ -11,9 +11,8 @@ dbase.execute('''CREATE TABLE IF NOT EXISTS records(
 dbase.commit()
 
 def write(ID, NAME):
-    c.execute(''' INSERT into records(ID, NAME) VALUES(?,?)''', (ID, NAME))
+    c.execute('''INSERT INTO records (ID, NAME) VALUES (?, ?)''', (ID, NAME))
     dbase.commit()
-
 
 def delete(x):
     c.execute('''delete from records where NAME=?''', x)
